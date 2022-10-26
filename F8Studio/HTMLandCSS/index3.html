@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- 
+    V27: Độ ưu tiên trong CSS
+    Đặt vấn đề là nếu có 2 dòng CSS (một dùng Internal, một dùng External) cùng hướng về h1
+    Vậy kiểu CSS nào sẽ đc ưu tiên thực hiện
+
+    *1. Trong CSS thì giữ Internal và External đều không có ưu tiên hơn cái nào, chương trình sẽ ưu tiên thực hiện 
+    dạng CSS đc viết sau, vd nếu đầu tiên thiết lập External, tuy nhiên sau đó ta cần chỉnh sửa lại một chút
+    và tiến hành sử dụng Internal, thì vì Internal viết sau(viết mới hơn) nên sẽ đc chương trình ưu tiên thực hiện
+
+    *2. Độ ưu tiên theo điểm: Inline - 1000đ, #id - 100đ, .class - 10đ, tag - 1đ
+    Với số điểm càng lơn thì độ ưu tiên thực hiện càng cao
+    VD: khi thực hiện css giữa .class và thẻ tag thì vì .class có điểm cao hơn sẽ ưu tiên thực hiện
+
+-->
+<html>
+    <head>
+        <title>F8 -Shop -CSS</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style3.css">
+
+        <!-- Vì Internal viết sau nên sẽ đc ưu tiên thực hiện -->
+        <style>           
+
+            .heading-class{
+                color: yellow;
+            }
+            h1{
+                color: red;
+            }            
+            /* 1.1 Ta thấy rằng cả h1 và .heading-class đều muốn thay màu cho h1 nhưng vì .class có điểm cao
+            hơn nên sẽ ưu tiên đc thực hiện */
+
+            #heading-id{
+                color: violet;
+            }
+            /* 1.2 vì id lớn điểm hơn .class nên đc ưu tiên thực hiện */
+            /* 1.3 vì thêm inline có số điểm lớn nhất nên các CSS trên sẽ ko đc chọn */
+            /* Thêm: bạn có thể F12 -> vào phần Style của h1 bạn sẽ thấy đc độ ưu tiên của css 
+            Các css nào có viết nhưng ko đc sử dụng sẽ bị gạch đi, trên cùng là cái đc chọn thực hiện*/
+
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <!-- 1.1 Đặt tên class vào trong thẻ h1 -->
+            <!-- 1.2 Đặt thêm id vào trong thẻ h1, có thể đặt cả clsss name và id name -->
+            <!-- 1.3 Thêm inline vòa thẻ h1,loại đc ưu tiên lớn nhất -->
+            <h1 style="color: blue;" id="heading-id" class="heading-class">Priority?: Độ ưu tiên trong CSS </h1>
+            <ol>
+                <li>Internal, External</li>
+                <li>Inline - 1000</li>
+                <li>#id - 100</li>
+                <li>.class - 10</li>
+                <li>tag - 1</li>
+                <li>Equal specificity</li>
+                <li>Universal selector and inherited</li>
+            </ol>
+        </div>
+        
+    </body>
+</html>
