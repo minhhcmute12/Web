@@ -1,3 +1,20 @@
+/* thực hiện việc cho thẻ html */
+html{
+    color: blue;
+}
+
+/* 1 */
 h1{
     color: green;
 }
+
+/* Thực hiện việc tô màu cho tất cả thẻ */
+*{
+    color: red;
+}
+
+/* thực hiện việc tô màu cho bảng */
+li{
+    color: black !important;
+}
+

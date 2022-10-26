@@ -12,6 +12,15 @@
     Với số điểm càng lơn thì độ ưu tiên thực hiện càng cao
     VD: khi thực hiện css giữa .class và thẻ tag thì vì .class có điểm cao hơn sẽ ưu tiên thực hiện
 
+    *3. Equal specificity: Khi có 2 lệnh css giống nhau về định danh nhưng khác nhau về điều khiển thì câu lệnh nào 
+    mới hơn hoặc có tổng điểm ưu tiên lớn hơn thì đc ưu tiên thực hiện.
+
+    *4. Universal selector and inherited: kí hiệu biểu thị thực hiện cho tất cả các thẻ, tuy nhiên mức độ ưu tiên là 0d
+    Có nghĩa là bất cứ kiểu css nào đều có thể ghi đè nó.
+    vd: ta vào file style3.css và thực hiện 
+    Lưu ý: thẻ html thẻ * có độ ưu tiên là 0 
+    Thêm '!important' vào phía sau 1 code css thì làm tăng độ ưu tiên code đó lên cao nhất.
+    Ngoài ra nếu có nhiều !important thì ta lại bắt đầu xét điểm nếu thêm các độ ưu tiên khác vào
 -->
 <html>
     <head>
@@ -28,26 +37,43 @@
             h1{
                 color: red;
             }            
-            /* 1.1 Ta thấy rằng cả h1 và .heading-class đều muốn thay màu cho h1 nhưng vì .class có điểm cao
+            /* 2.1 Ta thấy rằng cả h1 và .heading-class đều muốn thay màu cho h1 nhưng vì .class có điểm cao
             hơn nên sẽ ưu tiên đc thực hiện */
 
             #heading-id{
                 color: violet;
             }
-            /* 1.2 vì id lớn điểm hơn .class nên đc ưu tiên thực hiện */
-            /* 1.3 vì thêm inline có số điểm lớn nhất nên các CSS trên sẽ ko đc chọn */
+            /* 2.2 vì id lớn điểm hơn .class nên đc ưu tiên thực hiện */
+            /* 2.3 vì thêm inline có số điểm lớn nhất nên các CSS trên sẽ ko đc chọn */
             /* Thêm: bạn có thể F12 -> vào phần Style của h1 bạn sẽ thấy đc độ ưu tiên của css 
             Các css nào có viết nhưng ko đc sử dụng sẽ bị gạch đi, trên cùng là cái đc chọn thực hiện*/
+
+            /* 3.1 Thêm 1 #heding-id nhưng thay đổi khác màu, vì dòng dưới mới hơn nên sẽ ưu tiên đc chạy */
+            #heading-id{
+                color: gray;
+            }
+
+            /* 3.2 thêm cả #heading-id và .heading-class - dành cho thẻ nào khai báo cả hai*/
+            #heading-id.heading-class{
+                color: pink;
+            }
+            /* vì nó có cả hai nên độ ưu tiên sẽ là 110 > 100 > 10 so vs độ ưu tiên của 1 cái  */
+
+            /* 3.3 có 3 mức độ ưu tiên */
+            h1#heading-id.heading-class{
+                color: aqua;
+            }
 
         </style>
     </head>
 
     <body>
         <div>
-            <!-- 1.1 Đặt tên class vào trong thẻ h1 -->
-            <!-- 1.2 Đặt thêm id vào trong thẻ h1, có thể đặt cả clsss name và id name -->
-            <!-- 1.3 Thêm inline vòa thẻ h1,loại đc ưu tiên lớn nhất -->
-            <h1 style="color: blue;" id="heading-id" class="heading-class">Priority?: Độ ưu tiên trong CSS </h1>
+            <!-- 2.1 Đặt tên class vào trong thẻ h1 -->
+            <!-- 2.2 Đặt thêm id vào trong thẻ h1, có thể đặt cả clsss name và id name -->
+            <!-- 2.3 Thêm inline vòa thẻ h1,loại đc ưu tiên lớn nhất -->
+            <!-- <h1 style="color: blue;" id="heading-id" class="heading-class">Priority?: Độ ưu tiên trong CSS </h1> -->
+            <h1 id="heading-id" class="heading-class">Priority?: Độ ưu tiên trong CSS </h1>
             <ol>
                 <li>Internal, External</li>
                 <li>Inline - 1000</li>
