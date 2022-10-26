@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+<!-- 
+    Go Live : Cho phép chỉnh sửa code một cách real time
+ -->
+<!--
+    *Các thẻ_tag thông dụng trong html
+    1. h1->h6 : heading, viết tiêu đề - càng về sau thì các tiêu đề h chữ càng nhỏ.
+    h1-thường là tiêu đề chính, từ h2 trở đi là các tiêu đề phụ cho h1
+
+    2. p : paragraph - chứa các đoạn văn, các câu
+
+    3. img : file ảnh, thường sẽ phải có nguồn và đuôi file ảnh,thường đc thêm vào thẻ p
+    Cách nhanh nhất để lấy nguồn ảnh là chuột phải vào ảnh muốn lấy, chọn image address copy
+    Thuộc tính alt - khi ảnh bị lỗi hoặc mất nguồn thì sẽ hiển ra thông tin ảnh là gì, vd ở dưới ta cho 'Ảnh Casemiro'
+
+    4. a : anchor(mỏ neo): neo các liên kết, cho phép truy cập trang web được add vào
+
+    5. ul, li: unordered list - list  - thẻ hiển thị danh sách thông tin chứa nhiều phần tử
+
+    6. table : bảng 
+
+    7. input : tạo các coltrol dùng để đưa dữ liệu người dùng, vd text, checkbox,... 
+    <input type=""> //trong dấu "" thì ta có rất nhiều thuộc tính để lựa chọn tạo UI mong muốn
+
+    8. button : tạo ra nút nhấn
+
+    9. div : tạo khối bao quanh phần tử khác, nói chung là nhóm các phần tử trong khối
+    Mặc định sẽ không có viền bao quanh khôi, muốn hiển thị cần xử lý css
+
+    Lưu ý: có một số tag khi đóng ko có dấu '/' : nếu cần xuống dòng thì cần thêm dấu này vào trước dấu '>'
+
+     V16: thẻ Attibute trong HTML -  Attibute : là thẻ thuộc tính của html
+     vd: title: là thuộc tính_attribute của thẻ h1 <h1 title="Đây là tiêu đề">Attribute?</h1>
+ -->
+<html>
+    <!-- Comment: phím tắt Ctrl + // -->
+    <!--Phần đầu-->
+    <head>
+        <!-- Tiêu đề trang web -->
+        <title>F8 - Shop</title>
+        <!-- Cho phép hiển thị tiếng việt -->
+        <meta charset="utf-8"> 
+    </head>
+
+    <!-- Phần thân -->
+    <body>
+        <!--V1 Nội dung message-->
+        <!-- Xin chào các bạn!  -->
+<!--  -->
+        <!-- V2: Các thẻ HTML thông dụng - Hãy mở 1 bài báo -->
+        <h1> Casemiro mang tới sự cân bằng cho MU </h1> <!-- Tiêu đề -->
+        <h2> Thêm một màn trình diễn chất lượng nữa của Casemiro trước Chelsea hôm 22/10. Tiền vệ người Brazil ngày càng chứng tỏ giá trị trong màu áo MU. </h2> <!-- Tiêu đề phụ  -->
+        
+        <!-- Tạo các control đưa dữ liệu đầu vào -->
+        <input type="text">                 <!-- Tạo 1 ô textbox -->
+        <input type="checkbox">             <!-- Tạo 1 ô checkbox, nguyên tắc có thể chọn nhiều lựa chọn trong nhiều lựa chọn-->
+        <input type="radio">                <!-- Tạo 1 ô radio, nguyên tắc radio chỉ đc chọn 1 trong nhiều lựa chọn-->
+
+        <!-- Tạo ra nút nhấn  -->
+        <button>Đăng Ký</button>            <!-- Tên nút nhấn là đăng ký -->
+
+        <p>  Trận Chelsea hòa MU 1-1 là cuộc đấu trí của HLV Graham Potter và Erik ten Hag trên sa bàn. Cả hai HLV cố kiểm soát không gian trên sân bằng 
+            khoảng trống trong đầu. "The Blues" tỏ ra lép vế so với "Quỷ đỏ" trong 15 phút đầu trận. Những thay đổi của Potter giúp họ dần lấy lại khu trung tuyến.
+
+            <img src="https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg" alt="Ảnh Casemiro" />   <!-- Hình ảnh -->
+        </p>   <!-- Nội dung văn bản chi tiết -->     
+         
+        <a href="https://zingnews.vn/casemiro-mang-toi-su-can-bang-cho-mu-post1368285.html">Đi tới trang báo nguồn</a>   <!-- Thêm link trang web liên kết -->
+        <!-- Cho phép nhấn từ khóa "fullstack.edu.vn" để đi đến trang web liên kết -->
+        <p> Trang web <a href="https://fullstack.edu.vn">fullstack.edu.vn</a> thuộc sở hữu bởi F8 - Nền tảng học lập trình web tiên phong tại Việt Nam. </p>
+        
+        <!-- gắn link vào hình, khi nhấp vào hình sẽ chạy tới link -->
+        <a href="https://zingnews.vn/casemiro-mang-toi-su-can-bang-cho-mu-post1368285.html">
+            <img src="https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg" alt="Webpack và Babel" width="100%" />
+
+        <!-- Tạo danh sách hiển thị -->
+        <ul>
+            <!-- Hiển thị chi tiết các dòng --> <!--Nhấn li*n: n là số để thêm bao nhiêu dòng danh sách -->
+            <li>HTML, CSS là gì</li>
+            <li>Cài đặt môi trường</li>
+            <li>Làm quen với dev tool</li>
+        </ul>
+
+        <!-- Tạo khối bao quanh bảng -->
+        <div>
+            <!-- Table -->
+            <table>
+                <!-- Các tiêu đề cột của bảng  -->
+                <thead>
+                    <!-- th: title head -->
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Địa Chỉ</th>
+                </thead>
+
+                <body>
+                    <!-- tr: table row: hiển thị dòng của bảng -->
+                    <tr>
+                        <!-- td: các thẻ td sẽ phải tương ứng với các cột đã tạo ở th -->
+                        <td>1</td>
+                        <td>Sơn Đặng</td>
+                        <td>Hà Nội</td>
+                    </tr>
+                    <tr>
+                        <!-- td: các thẻ td sẽ phải tương ứng với các cột đã tạo ở th -->
+                        <td>2</td>
+                        <td>Quang Minh</td>
+                        <td>Khánh Hòa</td>
+                    </tr>
+                    <tr>
+                        <!-- td: các thẻ td sẽ phải tương ứng với các cột đã tạo ở th -->
+                        <td>3</td>
+                        <td>Hà My</td>
+                        <td>Bình Dương</td>
+                    </tr>
+                </body>
+            </table>
+        </div>        
+    </body>
+</html>

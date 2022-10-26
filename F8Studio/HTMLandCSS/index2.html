@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- ID và Class
+    + CSS selector:(tên gọi khác của External) là cách mà thiết lập một file .css, thêm cách thuộc tính và sau đó add trở lại file html
+
+    + ID: dùng để đặt tên và phân biệt các thẻ với nhau, vd ta có nhiều thẻ h1 nhưng chỉ muốn design 1 thẻ h1 thì bắt buộc cần đến id của thẻ.
+    Sau đó ta vào file .css để design thẻ mà t mong muốn theo id đã đặt (phía trước id là dấu '#')
+    Lưu ý: Trong 1 file chỉ đc phép có duy nhất 1 id name, ko đc phép đặt 2 thẻ có id name trùng nhau.(trong file html sẽ ko báo lỗi
+    tuy nhiên khi thực hiện với file javacript sẽ báo lỗi). Vì vậy class ra đời.
+
+    + Class: khi bạn muốn sử dụng thuộc tính cho nhiều thẻ khác nhau, các thẻ này sẽ có class name giống nhau
+     (phía trước class là dấu '.')
+
+    * Bảng tra cứu các CSS selectors cơ bản
+    Selector	            Ví dụ	                Mô tả
+    .class	                .intro	                Chọn tất cả các thẻ có class=“intro”
+    .class1.class2	        .name1.name2	        Chọn tất cả các thẻ có cả name1 và name2 được đặt trong thuộc tính class của nó
+    .class1 .class2	        .name1 .name2	        Chọn tất cả các thẻ có class=“name2” là con của một phần tử có class=“name1”
+    *	                    *	                    Chọn tất cả các thẻ
+    element	                h2	                    Chọn tất cả các thẻ h2
+    element.class	        div.box	                Chọn tất cả thẻ div có class=“box”
+    element, element	    div, h2	                Chọn tất cả thẻ div và h2
+    element element	        div p	                Chọn tất cả thẻ p trong thẻ div
+    element > element	    div > p	                Chọn tất cả thẻ p là con trực tiếp của thẻ div
+    element + element	    div + p	                Chọn thẻ p đứng liền kề sau thẻ div
+    element ~ element	    div ~ p	                Chọn tất cả thẻ p đứng sau thẻ div 
+    Tham khảo thêm tại: https://www.w3schools.com/cssref/css_selectors.asp
+-->
+<!--  -->
+<html>
+    <head>
+        <title> F8 - Shop - CSS</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <!-- tạo khối div -->
+        <div>
+            <h1 id="first-heading">CSS selector?</h1>           <!--Đặt id với thẻ-->
+
+            <h1 class="second-heading">CSS selector?</h1>                              <!--Đặt class vởi thẻ  -->
+            <h1 class="second-heading">CSS selector?</h1>             
+            <h2 class="second-heading">ID và Class?</h2>            
+        </div>
+    </body>
+</html>
