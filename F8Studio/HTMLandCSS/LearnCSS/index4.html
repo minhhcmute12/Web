@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- 
+    V29: CSS Variable: Kỹ thuật đặt biến trong CSS
+    Đặt bài toán, ta có nhiều code sử dụng chung 1 lệnh CSS giống nhau, tuy nhiên nếu đặt riêng và cần sửa chữa thì ta phải tới từng dòng code để sửa lại
+    theo mong muốn => Giải quyết bằng cách đặt biến và các code css đều dùng chung biến này, và khi cần thay đổi thì chỉ cần thay đổi giá trị của biến
+    thì tự động các code css mà lấy biến đó cũng tự đổi giá trị theo.
+    vd1: ở file style4.css ta có nhiều h1,h2,h3 đều dùng chung biến text-color, khi cần thay đổi màu tất cả thì chỉ cần thay đổi màu biến này
+
+    * Biến toàn cục: thường đc khai báo ở selector root và tất cả các selector của file đều có thể sử dụng
+    * Biến cục bộ :thường đc khai báo bên trong 1 selector và chỉ có selector đó đc phép sử dụng
+ -->
+<html>
+    <head>
+        <title>F8 -Shop</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="style4.css">
+    </head>
+
+    <body>
+        <div>
+            <h1>CSS Variable</h1>
+            <h2>CSS Variable2</h1>
+            <h3>CSS Variable3</h1>
+        </div>
+    </body>
+</html>

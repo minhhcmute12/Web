@@ -1,0 +1,20 @@
+:root {
+    --primary: #f05123;
+}
+
+.desc a {
+    /* color: #f05123; */
+    color: var(--primary);
+    font-weight: 600; /* chữ đậm */
+}
+
+.list strong {
+    /* color: #f05123; */
+    color: var(--primary);
+}
+
+.copyright a {
+    /* color: #f05123; */
+    color: var(--primary);
+    font-weight: 600;
+}

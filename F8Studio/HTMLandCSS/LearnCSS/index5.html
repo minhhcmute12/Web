@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- 
+    V32: Đơn vị trong CSS - các đơn vị để tùy chỉnh kích thước
+    1. Absolute Units - đơn vị tuyệt đối
+        "px-pixel": kích thước điểm ảnh, ở các màn hình độ phân giải thấp 1 điểm ảnh tương ứng với 1 pixel, nhưng ở các màn hình độ phân giải cao
+    thì 1 pixel có thể bằng nhiều điểm ảnh.
+    Đặc điểm các đơn vị tuyệt đối là không thay đổi các kích thước cho dù các yếu tố xung quanh(thu nhỏ trang web,..) thay đổi
+    Các đơn vị còn lại (pt, cm, mm, inch, pc) thì ít khi được sử dụng
+
+    2. Relative Units - đơn vị tương đối
+    Tất cả đơn vị của giá trị tương đối cần 1 cái gì đó phụ thuộc vào. Khi thay đổi đơn vị phụ thuộc(như kéo to trang web) thì kích thước
+    của các UI mà sử dụng giá trị tương đối cũng sẽ thay đổi theo
+ -->
+<html>
+    <head>
+        <title>F8 - Shop</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="">
+
+        <style>
+            /*1 định dạng kích thước cho box - chiều dài chiều rộng, màu nền*/
+            /* .box{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            } */
+
+            /* 2 định dạng kích thước cho box bằng Relative Units*/
+            .box{
+                /*2.1: '%' ở đây kích thước width sẽ phụ thuộc vào kích thước của thẻ body : = 50% kích thước thẻ body*/
+                width: 50%;
+                height: 100px;
+                background-color: red;
+            }
+
+            /* 2.2: 'rem' : phụ thuộc vào thẻ html*/
+            .html{
+                font-size: 20px;
+            }
+            /* kích thước h1 sẽ phụ thuộc vào kích thước khai báo ở thẻ html */
+            h1{
+                /* ở đây ta cho kích thước = 2rem = 2*20 = 40px */
+                font-size: 2rem;  
+            }
+            /* Nếu cần thay đổi tất cả định dạng với ít lệnh thì nên sử dụng 'rem' 
+            Vd: ban đầu bạn lập trình và chỉ thiết lập kích thước cơ bản cho các UI, nhưng sau này bạn muốn thay đổi kích thước của các
+            UI đó, nếu sửa từng cái thì rất mất thời gian, nên việc sử dụng rem là cần thiết vì chỉ cần thay đổi trong thẻ html thì
+            các thuộc tính phụ thuộc vào rem cũng sẽ thay đổi theo
+            Vd khách: ở mỗi thiết bị kích thước màn hình sẽ khác nhau nên việc tăng hay giảm kích thước hiển thị cho phù hợp với 
+            từng loại màn hình là rất cần thiết*/
+
+            /* 2.3: 'em' : phụ thuộc vào thẻ gần nhất mà có định dạng thuộc tính mà nó chỉ thị*/
+            h2{
+                /* chương trình sẽ tìm kiếm các thẻ gần nhất có định dạng font-size và phụ thuộc vào đó */
+                font-size: 1em;
+            }
+            /* thường sẽ sử dụng 'rem' hơn vì rem sẽ luôn phụ thuộc vào thẻ html nên dễ kiểm soát hơn */
+            
+            /* 2.4: vw- viewport width, vh- viewport height : thiết lập chiều dài, chiều rộng theo khung view trình duyệt*/
+            /* viewport: độ rộng của khung nhìn, khung view trình duyệt, áp dụng cho các UI cần độ kích thước lớn*/
+            .box24{
+                /* chiếm 100% chiều ngang của trình duyệt */
+                width: 50vw;
+                height: 50vh;
+                background-color: blue;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="box"></div>
+
+        <!-- 2.3 thiết lập font-siz để h2 phụ thuộc -->
+        <div style="font-size: 50px;">            
+            <h1>CSS Units</h1>
+            <h2>1. Absolute Units</h2>
+            <ul>
+                <li>px</li>                
+            </ul>
+
+            <h2>2. Relative Units</h2>
+            <ul>
+                <li>%</li>
+                <li>rem</li>
+                <li>em</li>
+                <li>vw</li>
+                <li>vh</li>
+
+                <!-- <li>vmin</li>
+                <li>vmax</li>
+                <li>ex</li>
+                <li>ch</li> -->
+            </ul>            
+        </div>
+
+        <div class="box24"></div>
+        
+    </body>
+</html>

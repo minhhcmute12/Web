@@ -1,0 +1,17 @@
+/* Tạo một lớp giả */
+:root{
+    /* đặt biến theo kiểu toàn cục */
+    --text-color: green;
+}
+
+h1{
+    /* đặt biến cục bộ */
+    --my-color:blue;
+    color: var(--my-color);
+}
+h2{
+    color: var(--text-color);
+}
+h3{
+    color: var(--text-color);
+}
