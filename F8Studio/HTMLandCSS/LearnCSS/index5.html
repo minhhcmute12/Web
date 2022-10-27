@@ -10,6 +10,18 @@
     2. Relative Units - đơn vị tương đối
     Tất cả đơn vị của giá trị tương đối cần 1 cái gì đó phụ thuộc vào. Khi thay đổi đơn vị phụ thuộc(như kéo to trang web) thì kích thước
     của các UI mà sử dụng giá trị tương đối cũng sẽ thay đổi theo
+    
+    3. Reset margin được đặt mặc định: Khi nhìn vào khối màu, chắc hẳn một số bạn sẽ nhìn ra, có một khoảng trắng bị dư ra khi tạo khối phải không?
+    Đặt vấn đề: Rõ ràng BOX 4 width: 100% rồi sao lại dư ra như vậy?
+    Lý do: Trên trình duyệt được đặt sẵn một số thuộc tính CSS mặc định, trong đó có thuộc tính margin, đây là thuộc tính tạo ra một khoảng cách giữa các thẻ. 
+    Cụ thể trong tình huống trên, thẻ body mặc định có margin: 8px, vì vậy body đang đẩy ra xung quanh 8px và gây ra hiện tượng trên.
+
+    Cách khắc phục: Không chỉ thẻ body, một số thẻ thông dụng như h1-h6, p cũng có margin mặc định. Trong thực tế, điều này thường tạo ra những khoảng trắng ngoài ý muốn.
+    Để khắc phục chúng ta sẽ Reset CSS bằng cách sau: Sử dụng * selector, vì nó tác động lên mọi thẻ, vì vậy chúng ta có thể reset cho mọi thẻ:
+        *{
+            margin: 0; /* Loại bỏ margin mặc định */
+            padding: 0; /* Loại bỏ padding mặc định */
+        }
  -->
 <html>
     <head>
@@ -28,7 +40,9 @@
 
             /* 2 định dạng kích thước cho box bằng Relative Units*/
             .box{
-                /*2.1: '%' ở đây kích thước width sẽ phụ thuộc vào kích thước của thẻ body : = 50% kích thước thẻ body*/
+                /*2.1: '%' Lưu ý các kích thước theo % sẽ phụ thuộc vào kích thước của thẻ cha. 
+                 ở vd kích thước width sẽ phụ thuộc vào kích thước của thẻ body : = 50% kích thước thẻ cha là body*/
+                /*  */
                 width: 50%;
                 height: 100px;
                 background-color: red;

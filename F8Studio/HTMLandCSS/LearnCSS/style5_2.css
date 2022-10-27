@@ -1,0 +1,45 @@
+/* VD #1 */
+html {
+    /* Thử thay đổi font-size và khám phá sự thay đổi */
+    font-size: 24px;
+}
+
+.text-1 {
+    font-size: 1rem;
+}
+
+.text-2 {
+    font-size: 2rem;
+}
+
+/* VD khi sử dụng px */
+/* #heading {
+    font-size: 20px;
+}
+
+.sub-heading {
+    font-size: 16px;
+}
+
+.text, ol li {
+    font-size: 14px;
+} */
+/* => nếu sửa kích thước ta phải sửa tất cả */
+
+/* VD khi sử dụng rem #2 */
+html {
+    font-size: 62.5%;
+}
+
+#heading {
+    font-size: 2rem;
+}
+
+.sub-heading {
+    font-size: 1.6rem;
+}
+
+.text, ol li {
+    font-size: 1.4rem;
+}
+/* => Ta chỉ cần sửa kích thước thẻ html là các kích thước dùng rem sẽ tự thay đổi theo */

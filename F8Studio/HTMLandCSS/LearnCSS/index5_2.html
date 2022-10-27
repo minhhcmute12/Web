@@ -1,0 +1,83 @@
+<!-- 
+    * Ví dụ sử dụng đơn vị rem #1
+    Khi bạn CSS cho một thẻ là font-size: 1rem, thì giá trị 1rem này sẽ phụ thuộc vào giá trị font-size được đặt cho thẻ html, 
+    mặc định tại trình duyệt thì font-size: 16px, vì vậy mặc định font-size: 1rem sẽ bằng 16px, 2rem sẽ bằng 32px.
+
+    Khi các bạn đặt font-size với giá trị khác cho thẻ html thì giá trị của rem cũng sẽ thay đổi theo tương tự. Hãy mở tab TRÌNH DUYỆT 
+    và thử thay đổi file style.css để khám phá cách hoạt động của rem bạn nhé.
+
+    ** Vấn đề khi sử dụng px cho font-size:
+    Đặ vấn đề: Giả sử bạn làm cho khách hàng 1 website tin tức, ban đầu khách hàng đồng ý với kích cỡ font chữ hiện tại. Nhưng sau đó, 
+    khách hàng nhận thấy kích cỡ font chữ hơi nhỏ và muốn tăng tất cả font-size to lên một chút.
+    => Khi sử dụng px, bạn sẽ phải đi sửa từng chỗ trong code web -> lúc này rem đc sử dụng để giải quyết
+
+    * Ưu điểm khi sử dụng rem cho font-size #2
+    Vẫn là ví dụ ở bài trước, nhưng thay vì sử dụng px thì bài này F8 sẽ sử dụng rem. (xem file style5_2.css)
+    => Khi cần tăng/giảm font-size cho tất cả, chỉ cần sửa 1 nơi(thẻ html)
+
+    => Ngoài ra, đơn vị rem có thể tự tăng/giảm kích cỡ font chữ theo settings của trình duyệt, thiết bị, VD: người cao tuổi thường để 
+    điện thoại có kích cỡ chữ lớn hơn. Với đơn vị px thì không được như vậy, vì px thuộc nhóm đơn vị tuyệt đối.
+    => Đây chính là ứng dụng của reponsive trong css
+
+    * Con số 62.5% là gì?
+    Mặc định font-size của thẻ html là 16px - tương ứng với 100%. Khi ấy, 1rem sẽ bằng 16px. Vậy khi muốn đặt font-size tương ứng với 10px 
+    thì ta sẽ đặt bằng bao nhiêu rem? -> Đương nhiên, theo mặc định 10px đổi sang rem sẽ là 10/16 = 0.625, như vậy để CSS bằng đơn vị rem 
+    ra được kích cỡ tương ứng 10px ta sẽ CSS là font-size: 0.625rem.
+    => Khá hại não khi phải quy đổi như vậy. Vì vậy, chúng ta có thể quy đổi tỉ lệ tại thẻ html với CSS font-size: 62.5%. 
+    Kết quả thu được, 1rem = 10px, 1.6rem = 16px, 2rem = 20px, 2.4rem = 24px.
+    => Đơn vị rem được sử dụng với font-size trong rất nhiều website. Cách quy đổi font-size: 62.5% cũng có thể được coi là một mẹo giúp 
+    chúng ta dễ dàng sử dụng đơn vị rem hơn.
+
+    * Tại sao không sử dụng 10px thay cho 62.5%?
+    Chắc hẳn một số bạn sẽ nhận thấy, nếu con số 62.5% chỉ để dễ dàng trong việc chuyển đổi rem sang px thì tại sao chúng ta không làm như này:
+        html {
+            font-size: 10px;
+        }
+    Tại sao không làm luôn như này cho nhanh? Qua bài học về các đơn vị, các bạn cần nhớ px là đơn vị tuyệt đối, nó sẽ tương ứng với số px hiển thị 
+    trên màn hình của bạn (phụ thuộc vào độ phân giải trong tùy chọn hiển thị của thiết bị). Tức là, cho dù một người mắt kém, họ cài đặt kích thước 
+    font chữ trên trình duyệt hoặc thiết bị của họ lớn hơn bình thường, với việc sử dụng font-size là px thì chữ trên website của bạn vẫn sẽ giữ 
+    đúng kích thước px của nó, và hiển thị bị nhỏ hơn so với mong muốn của người dùng.
+    Đối với rem, là đơn vị tương đối. Mặc định font chữ của trình duyệt là 16px thì 62.5% sẽ ứng với 10px. Nhưng nếu người dùng mắt kém, cần chữ to hơn, 
+    họ set trình duyệt mặc định ở font chữ lớn hơn, khi ấy chữ trên website của bạn cũng sẽ được lớn lên theo. Vì khi ấy, 62.5% sẽ là 62.5% của kích thước 
+    font chữ mà người dùng cài đặt.
+
+    Tham khảo: Công cụ chuyển đổi PX to REM-> https://nekocalc.com/px-to-rem-converter
+ -->
+
+ <!DOCTYPE html> 
+<html>
+     
+    <!-- <head>
+        <title>Đơn vị rem</title>
+        <meta charset="UTF-8" />
+    </head> -->
+
+    <!-- VD#1 -->
+    <!-- <body>
+        <p class="text-1">Đoạn văn này font-size là 1rem, khi bạn thay đổi font-size cho thẻ html thì giá trị ở đây thay đổi theo.</p>
+        <p class="text-2">Đoạn văn này có font-size 2rem, vì vậy sẽ lớn gấp 2 lần đoạn văn ở trên.</p>
+    </body> -->
+
+    <!-- VD #2 -->
+    <body>
+        <h1 id="heading">Tại sao nên thêm rel="noopener" khi sử dụng target="_blank"?</h1>
+        <p class="text">
+            Như chúng ta đã biết, sử dụng target="_blank" cho thẻ a thì khi người dùng click vào liên kết trình duyệt sẽ mở trên một tab mới, thường là do liên kết trong thẻ a dẫn tới một website khác và chúng ta không muốn người dùng rời khỏi website của mình.
+        </p>
+
+        <h2 class="sub-heading">Vấn đề là gì?</h2>
+        <p class="text">Với cách làm trên có 2 vấn đề về bảo mật và hiệu suất:</p>
+
+        <ol>
+            <li>Tại trang đích có thể sử dụng window.opener để kiểm soát được cửa sổ trang gốc của chúng ta, ví dụ chạy window.opener.location.href = 'https://fullstack.edu.vn/' là có thể chuyển hướng cửa sổ gốc tới https://fullstack.edu.vn/. Hãy tưởng tượng bạn bị chuyển tới một URL có nội dung “độc hại” như 18+ (khi ngồi cạnh người yêu), hay các trang giả mạo để đánh cắp tài khoản ngân hàng, thông tin cá nhân, v.v…</li>
+            <li>Trang đích chạy cùng tiến trình xử lý Javascript với trang gốc, nếu trang đích sử dụng nhiều logic “nặng” hoặc tối ưu chưa tốt về mặt hiệu năng có thể làm ảnh hưởng tới trang web của bạn đang được mở tại cửa sổ gốc.</li>
+        </ol>
+
+        <h2 class="sub-heading">Khắc phục thế nào?</h2>
+        <p class="text">Để khắc phục vấn đề trên, bạn hãy thêm rel="noopener" vào toàn bộ các thẻ a có target="_blank" nhé.</p>
+        <p class="text">Tham khảo: <a href="https://web.dev/external-anchors-use-rel-noopener">https://web.dev/external-anchors-use-rel-noopener</a></p>
+    </body>
+    
+</html>
+
+

@@ -1,0 +1,48 @@
+<!-- 
+    **Ví dụ sử dụng đơn vị % #1
+    Thuộc tính width, height với đơn vị % sẽ phụ thuộc vào kích thước width, height của thẻ mà nó phụ thuộc, mặc định là thẻ cha trực tiếp. 
+    Ví dụ: Thẻ cha có width 100px, thẻ con có width: 50% sẽ tương ứng với 50px.
+
+    VD: body>
+            <div class="box box1">BOX 1</div>
+            <div class="box box2">BOX 2</div>
+            <div class="box box3">BOX 3</div>
+            <div class="box box4">BOX 4</div>
+        </body>
+    Trong ví dụ này, các bạn sẽ thấy các class box nằm trong thẻ body, mặc định thẻ body sẽ có width bằng kích thước cửa sổ trình duyệt. 
+    Vì vậy, box có width: 50% sẽ bằng 50% chiều ngang trình duyệt.
+
+    **Ví dụ sử dụng đơn vị % #2
+    Ở bài #1, F8 đã đưa ra ví dụ về đặt width theo đơn vị %. Thực tế, thuộc tính height đặt theo % cũng hoạt động tương tự, tuy nhiên các 
+    bạn cần chú ý một chút để tránh hiểu nhầm.
+    Hãy nhớ, thuộc tính width và height, khi đặt theo % sẽ tỉ lệ vào thẻ mà nó phụ thuộc, mặc định là THẺ CHA(thẻ chứa nó) trực tiếp của nó. 
+    Vì vậy, thẻ cha của nó phải có kích thước cho width hoặc height thì thẻ con đặt theo % mới có tác dụng.
+     + Với CHIỀU RỘNG thì các thẻ như body, div sẽ mặc định có width: 100%. Vì vậy, ở bài #1 các bạn mà comment thuộc tính width của .box1 lại, 
+     bạn sẽ thấy nó chiếm 100% chiều rộng.
+     + Với CHIỀU CAO, mặc định các thẻ có height: auto, chiều cao sẽ tự động thay đổi khi nội dung bên trong nó tăng lên. Nếu THẺ CHA có height: auto 
+     và thẻ con của nó height: 50% thì sẽ không có tác dụng, khi ấy thẻ con vẫn có height: auto. Vì vậy, để một thẻ có thể đặt height theo % thì thẻ 
+     nó phụ thuộc phải có một chiều cao mang tính cố định.
+ -->
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ví dụ sử dụng đơn vị % #1</title>
+    </head>
+
+    <body>
+        <div class="box box1">BOX 1</div>
+        <div class="box box2">BOX 2</div>
+        <div class="box box3">BOX 3</div>
+        <div class="box box4">BOX 4</div>
+
+        <div class="parent-1">
+            <div class="box-1">BOX 1.2</div>
+        </div>
+        
+        <div class="parent-2">
+            <div class="box-2">BOX 2.2</div>
+        </div>
+
+    </body>
+</html>
