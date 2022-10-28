@@ -1,0 +1,87 @@
+<!-- 
+    V45: Pseudo element (phần tử giả) trong CSS
+    Giúp tạo một đối tượng bên trong đối tượng gốc mà không sử dụng mã html
+   
+    ::before và ::after -> tính năng giống như  tạo 1 khối div bên trong 1 đối tượng
+    Lưu ý: mỗi đối tượng chỉ đc phép có 1 before và 1 after 
+    Điểm khác giữa before và after là khi chạy file thì thuộc tính before sẽ đc xếp trước, tiếp đến các thuộc tính khác
+    và cuối cùng mới đến thuộc tính after
+
+    ::first-letter -> xử lý ký tự đầu tiên của text, vd: viết hoa chữ cái đầu tiên
+
+    ::first-line -> xử lý dòng đầu tiên của text, vd phóng to cả dòng đầu tiên 
+
+    ::selection -> xử lý thay đổi thuộc tính khi đc chọn, vd: khi chuột quét thì tô màu 
+    Lưu ý: chỉ có dòng đc selection mới xử lý còn các dòng khác sẽ bình thường
+    Nếu ko có phần tử gốc đứng đằng trước ::selection thì nó  chương trình sẽ hiểu sẽ làm toàn bộ tất cả các dòng
+
+    Ngoài ra còn nhiều phần tử giả khác
+ -->
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>F8 - Shop</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="">
+        <style>
+            *{
+                margin: 0px;
+            }
+
+            .box{
+                width: 100%;
+                height: 120px;
+                background: rgb(190, 124, 157);
+            }
+/*  */
+            .box::before{
+                /* tạo đối tượng ô vuông trên box */
+                content: ""; /* giúp cho */
+                display: block;
+                width: 50px;
+                height: 50px;
+                background-color: #fff;
+            }
+
+            .box::after{
+                /* tạo đối tượng ô vuông trên box, yêu cầu cố định cần content và display */
+                content: ""; /* giúp cho phần tử tồn tại */
+                display: block; 
+
+                width: 50px;
+                height: 50px;
+                background-color: #fff;
+            }
+
+            h1::first-letter{
+                /* hiển thị chữ C đầu dòng to lên của text h1 */
+                font-size: 70px;
+            }
+            h1::first-line{
+                /* phóng to kích thước dòng đầu tiên so với dòng 'dòng thứ 2' */
+                font-size: 50px;
+                color: red;
+            }
+            h1::selection{
+                /* khi nhấn và quét h1 sẽ hiển thị màu bôi là màu violet, các dòng khác khi quét vẫn màu đen bình thường*/
+                background-color: violet;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="box"></div>
+
+        <h1>CSS pseudo element <br/>Đầy là Dòng thứ 2 </h1>
+        <ul>
+            <li>::before</li>
+            <li>::after</li>
+            <li>::first-letter</li>
+            <li>::first-line</li>
+            <li>::selection</li>
+        </ul>
+    </body>
+</html>
