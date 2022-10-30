@@ -1,0 +1,109 @@
+<!-- 
+    V47: CSS Padding (lớp đệm)
+
+    Cách bật sơ đồ khối của 1 UI: F12 ->  Computed
+
+    V48: CSS Border(đường viền) - đường viền bao quanh lớp đệm
+    Cả hai padding và Border sẽ làm tăng tổng kích thước của 2 element
+
+    V52: CSS Margin(khoảng cách lề) - vd: tạo khoảng cách giữa 2 khối, giữa khối và lề
+    Lưu ý: margin chỉ là 1 khoảng cách đc đẩy, tạo ra chứ không bao bọc element
+    Nếu tăng margin quá nhiều sẽ làm thay đổi cách hiển thị các element
+
+    V54: Thuộc tính box-sizing
+    Đặt vấn đề: khi cần tạo khoảng trống lề và nội dung thì thường sử dụng padding,border nhưng làm cách này sẽ làm
+    tăng tổng kích thước của element lên. Lúc này ta lại tìm cách cân bằng giữa kích thước và padding, border và element. 
+    => Cách này vẫn đc nhưng ta sẽ phải sửa khá nhiều code -> thuộc tính box-sizing giải quyết vấn đề
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>F8 - Shop</title>
+        <meta charset="utf-8">
+
+        <style>
+            *{
+                margin: 0px;
+            }
+/*  */
+            /* thuộc tính chung cho 3 box */
+            .box{
+                width: 60px;
+                height: 60px;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* đưa các khối nhỏ thuộc box nằm trên 1 chiều ngang từ lề trái */
+                /* float: left; */
+            }
+
+            /* thuộc tính riêng từng box */
+            .box1{
+                background-color: #333;
+                /* tạo khoảng cách 20px giữ box1 và lè trái */
+                margin-left: 10px;
+            }
+            .box2{
+                background-color: orange;
+                /* cách viết ngắn */
+                /* tạo margin cả 4 hướng */
+                margin: 20px;
+            }
+            .box3{
+                background-color: red;
+                /* Thêm hoặc giảm tổng kích thước(đệm thêm phần) của 1 thành phần theo hướng lập trình */
+                /* padding-top: 10px;  
+                padding-right: 10px;
+                padding-bottom: 10px;
+                padding-left: 10px; */
+                /* tự động đẩy cả 4 hướng theo 1 tham số - short hand: cú pháp ngắn*/
+                padding: 10px;  
+                /* tự động đẩy cả 4 hướng theo tham số từng hướng (chạy theo quy tắc đồng hồ bắt đầu từ top)*/
+                /* nếu 2 giá trị thì là (trên-dưới)(trái-phải), nếu 3 giá trị là (trên)(trái-phải)(dưới) */
+                /* padding: 10px 12px 8px 6px; */
+
+                border-width: 10px;     /* Độ dày của đường viền */
+                /* Xét border theo chiều */
+                /* border-top-width: 10px; 
+                border-right-width: 12px; 
+                border-bottom-width: 10px; 
+                border-left-width: 12px;  */
+
+                border-style: solid;   /* (dashed: Nét đứt)Kiểu đường viền, Solid(nét liền), ... */
+                /* kểu solid thì mặc định độ dày viền của nó là 2px, nếu xét về 0 thì nó vẫn hiển thị 2px */
+                border-color: #333; /* màu đường viền */
+                /* kiểu viết ngắn */
+                /* border: 10px solid #333; */              
+            }
+
+            .box4{
+                background-color: darkorchid;
+                /* tạo khoảng cách 20px giữ box1 và lè trái */
+                width: 100px;
+                height: 100px;
+                color: #fff;
+                /* Ban đầu ta muốn thêm padding và border để tạo canh thụt lề */
+                padding: 16px;
+                border: 2px solid #333;
+                /* Cách này làm thụt lề ok nhưng làm tăng kích thước element */
+
+                /* Cân bằng kích thước element khi có padding,border theo kích thước width-height đã cho ban đầu */
+                box-sizing: border-box;
+                /*  Lưu ý: cần tính toán kích thước padding,border sao cho phù hợp, nếu quá lớn thì thuộc tính
+                box-sizing không cân bằng đc*/
+                /* content-box : không sử dụng box-sizing */
+                /* unset: hủy box-sizing đc sử dụng ở đâu đó, và bạn muốn hủy khi viết code mới */
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>CSS Padding-Border-Margin-BoxSizing</h1>
+        <div class="box box1">Box 1</div>
+        <div class="box box2">Box 2</div>
+        <div class="box box3">Box 3</div>
+        <div class="box box4">Box 4: Nôi dung</div>
+    </body>
+</html>
