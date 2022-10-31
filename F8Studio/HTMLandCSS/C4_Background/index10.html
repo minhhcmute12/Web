@@ -1,0 +1,88 @@
+<!-- 
+    V56: Thuộc tính Background-image
+    Sử dụng nền là bằng một bảng màu nào đó hoặc ta sẽ sử dụng một tấm ảnh làm ảnh nền cho trang web hoặc một box
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>F8 - Shop</title>
+        <meta charset="utf-8">
+
+        <style>
+            html,body{
+                margin: 0;
+            }
+/*  */
+            .header{
+                width: 100%;
+                height: 100vh;
+                /* background-color: #333; */
+
+                /* VD1 */
+                /* Thêm 1 ảnh vào thuộc tính background-image */
+                /* background-image: url("https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg"); */
+
+                /* Thêm nhiều hình ảnh làm background-image */
+                /* background-image: url("https://images.squarespace-cdn.com/content/v1/5d91b457b77a4735ec52a40e/1576032232211-1CJ820WFN1VR38ILRPCA/image-asset.png?format=750w")
+                                 ,url("https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg"); */
+                /* Nguyên tắc: các ảnh sẽ cách nhau bằng dấu phẩy, ảnh nào viết trước sẽ ở đầu tiên, và sau đó các ảnh kế sẽ tiếp tục xếp dưới theo thứ tự  */
+
+                /* Sau khi thêm, tùy vào kích thước của ảnh mà trang web tự động design theo ý nó sao cho vừa với kích thước trang web
+                Vì vậy, ta cần căng chỉnh lại hình ảnh sao cho đúng ý lập trình viên */
+                /* Chiều ngang là 100px, chiều dọc ko ghi là auto  *//*Lưu ý: 100px là kích thước tuyệt đối  */
+                /* background-size: 100px;    */
+
+                /* Tăng kích thước hình ảnh là 100% kích thước khung web */
+                /* background-size: 100%;  */
+                /* background-size: auto auto; hoặc background-size: 100% auto;  */
+                /* Lưu ý: nếu đưa kích thước ảnh vào không phù hợp sẽ có hiện tượng méo ảnh
+                vd: background-size: 100% 100px -> kích thước ảnh dài nhưng chiều cao ảnh quá thấp dẫn đến ảnh hiển thị bị xấu đi*/
+
+                /* Sau khi chỉnh kích thước vì trang web sẽ có kích thước hơn 100px rất nhiều nên chương trình lại tự động tạo nhiều 
+                hình ảnh để cho tràn đúng kích thước của khung web, lúc này ta muốn chỉ tạo 1 ảnh */
+                 /* Chỉ hiển thị 1 ảnh duy nhất, ko lặp lại hình ảnh */
+                /* background-repeat: no-repeat;       */
+                /* Thêm: + repeat: cho phép lặp lại ảnh nhiều lần cho đến khi tổng kích thước ảnh bằng kích thước khung web
+                         + repeat-x : cho phép lặp lại ảnh theo chiều ngang
+                         + repeat-y : cho phép lặp lại ảnh theo chiều dọc*/             
+                         
+                /* VD2 */
+                /* Tạo background-image là các bảng màu chạy(nhiều màu) */
+                /* linear-gradient(): thuộc tính này biểu thị chức năng hiển thị một dải màu chuyển*/
+                /* Dòng code này sẽ giúp nền web là một bảng màu chuyển dần từ màu đen đậm 333 đến màu đen nhạt ở đầu trang ccc */
+                /* background-image: linear-gradient(0,#333,#ccc);                 */
+                /* linear-gradient(a,b,c)  -> Với: a(hướng xoay từ 0độ ->360độ), b(mã màu bắt đầu chuyển), c(mã màu kết thúc chuyển)*/
+
+                /* Ta muốn đảo ngược màu chuyển nền(từ trên xuống dưới), ta thay độ hướng độ */
+                 /* background-image: linear-gradient(180deg,#333,#ccc);  */
+                /* Thêm: 90deg: chuyển màu từ trái sang phải, -90deg: chuyển màu từ phải sang trái */
+                /* Nếu bỏ đi tham số độ trong hàm linear-gradient() thì góc chuyển mặc định là 180deg */
+
+                /* VD3: Kết hợp giữa hình ảnh và bảng màu chuyển */
+                /* Lưu ý: khi kết hợp là sự chồng lên nhau giữa hai param nên ta cần xem xét trước cái nào sẽ nằm lên trên cái nào
+                Vd: nếu màu trước và hình ảnh sau cần tạo màu sao cho thuộc dạng trong suốt để có thể thấy hình ảnh và ngược lại */
+                /* Để tạo màu thuộc dải trong suốt thì ta thường dùng hàm rgba() */
+                background-image: linear-gradient(0,rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
+                                url(https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg);
+                background-size: 100%;
+                background-repeat: no-repeat;
+
+                /* VD4: Ứng dụng sự repeat trong tạo background */
+                /* Nếu là một hình ảnh về chủ thể nào đó thì khi thêm vào nền thì sự lặp lại ảnh thì ta thấy không đc đẹp 
+                Nhưng nếu ảnh là một phong nền hoa văn thì hiệu ứng lặp lặp tạo cảm giác cân bằng cho khung hình.
+                Ta có thể liên tưởng hiệu ứng này như là việc lát sàn nhà bằng các loại đá vuông có kích thước và hoa văn giống nhau
+                Cách google search các ảnh dạng này: repeat background stock image*/
+                /* background-image: url("https://media.istockphoto.com/photos/black-and-white-doggy-tile-pattern-repeat-background-picture-id490428980?s=612x612");
+                background-size: 100px;                 */
+
+                /* Mẹo: #333, hoặc #ccc: đây là các mã màu theo dạng thập lục phân 
+                rgba(): hàm tạo mã màu bằng sự kết hợp 3 màu cơ bản và có cơ số chạy từ 0->255, a: chỉ sự trong suốt hay cô đặc và chạy thập phân từ 0->1*/
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header"></div>
+    </body>
+</html>
