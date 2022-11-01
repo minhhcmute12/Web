@@ -1,6 +1,14 @@
 <!-- 
     V56: Thuộc tính Background-image
     Sử dụng nền là bằng một bảng màu nào đó hoặc ta sẽ sử dụng một tấm ảnh làm ảnh nền cho trang web hoặc một box
+
+    V58: Background-size với cover, contain
+
+    V60: Thuộc tính Background-origin
+
+    V62: Thuộc tính Background-position
+
+    V64: Cú pháp "shorthand" cho background
  -->
 <!DOCTYPE html>
 <html>
@@ -63,9 +71,36 @@
                 Vd: nếu màu trước và hình ảnh sau cần tạo màu sao cho thuộc dạng trong suốt để có thể thấy hình ảnh và ngược lại */
                 /* Để tạo màu thuộc dải trong suốt thì ta thường dùng hàm rgba() */
                 background-image: linear-gradient(0,rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
-                                url(https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg);
-                background-size: 100%;
+                                url(https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg);                
                 background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;  
+                back          
+
+                /* Vd6: Cách viết gọn tất cả thuộc tính background trong một lệnh */
+                /* background: url(https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg) no-repeat center / contain; */
+                /* hoặc: url(https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg)  center/ contain  no-repeat ;   */
+                /* chỗ url ta có thể thay bằng mã màu */
+
+                /* VD3.1(v58): sử dụng từ khóa 'contain' - tùy biến kích thước hình ảnh sao cho phù hợp với kích thước nền
+                vd: khi thu nhỏ khung web thì ảnh sẽ đc kéo phù hợp với khung(tùy vào chiều ngang và chiều dọc khung web mà
+                ảnh sẽ đc kéo thiêu chiều tương ứng để cho việc hiển thị ảnh nền là toàn bộ, ko che khuất phần nào) */
+                /* background-size: contain; */
+
+                /* VD3.2(v58): sử dụng từ khóa 'cover' - cũng tùy biến kích thước hình ảnh sao cho phù hợp với kích thước nền 
+                nhưng điểm khác là 'cover' chấp nhận che khuất, cắt bức ảnh đi một phần nếu như thu nhỏ khung web*/
+                /* background-size: cover; */
+                /* Cả 'contain và cover' đều thường lấy chiều dài hơn làm chủ đạo khi thu nhỏ khung web */
+
+                /* VD3.3(v60): sử dụng từ thuộc tính origin thực hiện việc hiển thị hình ảnh ỏ lớp mong muốn */
+                /* Bài này liên quan đến kiến thức các lớp trong một khung UI, nếu quên cần xem lại */
+                /* border: 20px dashed #ccc;
+                padding: 20px;
+                box-sizing: border-box;
+                background-origin: border-box; */
+                /* padding-box: đổ hình ảnh từ lớp padding 
+                   border-box: đổ hình ảnh từ lớp border, 
+                   content-box: đổ hình ảnh lớp trong cùng(chính nó) */
 
                 /* VD4: Ứng dụng sự repeat trong tạo background */
                 /* Nếu là một hình ảnh về chủ thể nào đó thì khi thêm vào nền thì sự lặp lại ảnh thì ta thấy không đc đẹp 
@@ -73,11 +108,28 @@
                 Ta có thể liên tưởng hiệu ứng này như là việc lát sàn nhà bằng các loại đá vuông có kích thước và hoa văn giống nhau
                 Cách google search các ảnh dạng này: repeat background stock image*/
                 /* background-image: url("https://media.istockphoto.com/photos/black-and-white-doggy-tile-pattern-repeat-background-picture-id490428980?s=612x612");
-                background-size: 100px;                 */
+                background-size: 100px; */               
+
+                /* VD5: Background-position : thiết lập vị trí của ảnh*/
+                /* background-position: n1 x n2 y;
+                n1,n2: top,left,bottom,right,center, -> cách dùng keyword: nếu chỉ ghi n1 mà ko ghi n2 thì chương trình sẽ tự hiểu n2 là center
+                x,y: giá trị tuyệt đối, tương đối đặt vào trục tung hoành đơn vị px,% (có giá trị âm, sẽ chạy theo hướng ngược lại) */
+                /* background-position: top 10px right 20px; */
+                /* Giải thích: ảnh sẽ cách cạnh trên 10px và cách lề phải 20px */
+                /* Một số cách khác */
+                /* background-position: top right ; */
+                /* background-position: top ; */
+                /* background-position: 10px  20%; */                
+                /* Lưu ý: tùy vào đinh vị hình ảnh mà ta có thể viết n1,n2,x,y theo mong muốn
+                Thường nếu hàm chỉ có n1,n2 thì ảnh sẽ nằm ở góc, hoặc x1,y2 thì ảnh nằm theo vị trí tuyệt đối 
+                Nếu là kết hợp 4 giá trị thì ảnh sẽ đc căn chỉnh theo hướng và khoảng cách tính từ hướng */
 
                 /* Mẹo: #333, hoặc #ccc: đây là các mã màu theo dạng thập lục phân 
-                rgba(): hàm tạo mã màu bằng sự kết hợp 3 màu cơ bản và có cơ số chạy từ 0->255, a: chỉ sự trong suốt hay cô đặc và chạy thập phân từ 0->1*/
-
+                rgba(): hàm tạo mã màu bằng sự kết hợp 3 màu cơ bản và có cơ số chạy từ 0->255, a: chỉ sự trong suốt hay cô đặc và chạy thập phân từ 0->1
+                
+                Xem gợi ý cách thuộc tính chạy: bấm 1 từ gợi ý thuộc tính muốn sử dụng -> xuất hiện bảng nhiều thuộc tính 
+                -> chọn cái bạn muốn sử dụng(ko click vào) -> click vào dấu mũi tên ngang -> chọn phần link MDN reference 
+                -> Chọn Open -> Hiển thị trang hướng dẫn sử dụng, ý nghĩa các thuộc tính css hoạt động -> NÊN XEM*/
             }
         </style>
     </head>
