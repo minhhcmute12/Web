@@ -1,0 +1,128 @@
+<!-- 
+    V66: Thuộc tính vị trí tương đối CSS_Position_Relative 
+    Vị trí tương đối là nó sẽ không bị phụ thuộc vào vị trí của 1 đối tượng nào khác, mà lấy chính vị trí mà nó
+    đang đứng làm góc tọa độ luôn(phụ thuộc vào chính nó). Nếu thay đổi vị trí thì sau khi thay đổi vị trí thì 
+    vị trí mới sẽ trở thành góc tọa độ mới của chính nó
+    Ứng dụng: giúp bạn tạo ra các layout đè lên layout khác
+
+    V68: Thuộc tính vị trí tuyệt đối CSS_Position_Absolute
+    Phụ thuộc vào vị trí của 1 đối tượng thẻ cha gần nhất nào đấy có thuộc tính position để lấy thẻ cha đấy làm góc tọa độ.
+    Sử dụng Absolute khi lập trình viên cho rằng cần tạo một đối tượng con chạy trong phạm vị vị trí của 1 đối tượng cha.
+    Nhắc: đối tượng con đôi khi có phần hiển thị view này ra khỏi phạm vi đối tượng cha, nhưng bản chất đối tượng con có 
+    vị trí nằm trong phạm vi của đối tượng cha.
+    Mẹo: để xác định thẻ cha là thẻ nào thì ta thường để thẻ cha có thuộc tính position: (có thể là relative hoặc absolute đều đc)
+
+    V70: Thuộc tính vị trí CSS_Position_Fixed
+    Đối tượng phụ thuộc vào cửa sổ trình duyệt. 
+    Vd: ở các trang web thường có các header chứa menu trang thường có vị trí đứng yên cho dù bạn kéo lên xuống nội dung bên dưới
+
+    V72: Thuộc tính vị trí CSS-Position_Sticky
+    Thường tạo ra các đối tượng dạng bám dính. 
+    Vd: khi cuộn trang xuống thì đối tượng thì đối tượng sẽ bám dính lên top, các nội dung thì đc cuộn đi, nhưng khi cuộn lên lại 
+    thì cả đối tượng và nội dung đều đc trả lại vị trí ban đầu
+
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>F8-Shop</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="">
+        <style>
+            html,body{
+                margin: 0;
+            }
+
+            /* vd1: relative */
+            h1{
+                position: relative;
+                /* Thuộc tính này đưa dòng chữ h1-Position di chuyển theo hướng mong muốn, và có thể đè lên ký tự tại vị trí đó nếu có
+                Lưu ý: thuộc tính này khác thuộc tính margin-hướng di chuyển(di chuyển cả nội dung trang web cùng xuống dưới) */
+                top: 100px; 
+                left: 100px;
+                /* các thuộc tính định hướng top,left,right,bottom,center này chỉ hoạt động khi có thuộc tính 'position: relative' đc kích hoạt */
+            }
+
+            /* vd2: absolute */
+            /* Tạo hộp bao ngoài là thẻ cha */
+            .box{
+                width: 100%;
+                height: 120px;
+                background-color: #333;
+                position: relative;
+                
+                /* vd3: đưa box này xuống dưới để thây đc header có thuộc tính fixed đc cố định */
+                top: 40px;
+            }
+            /* Hộp nhỏ bên trong là thẻ con */
+            .box-child{
+                width: 50px;
+                height: 50px;
+                background-color: #fff;
+                position: absolute;
+                /*Đối tượng Thẻ con lúc này có thể di chuyển bên trong phạm vị của thẻ cha */
+                /* vd: hộp con nằm ở phía trên bên phải */
+                top: 0;
+                right: 0;
+                /* Lưu ý: chỉ có thể sử dụng đc cách cặp (top-left,top-right,bottom-left,bottom-right)
+                Vẫn có thể viết cả 4 từ khóa, tuy nhiên lúc này chương trình sẽ ưu tiên top và left trước */
+
+                /* Mẹo: Khi cần phủ đối tượng con lên hết đối tượng cha thì ta ko cần khai báo width-height:
+                sau đó thiết lập 4 từ khóa điều hướng về 0, tiếp theo chỉnh màu ta muốn(thường sử dụng hàm rgba()
+                với độ hiển thị a < 1). Điều này đc ứng dụng khi muốn làm mờ(chỉnh màu) nội dung ban đầu khi có một sự 
+                kiện mới_khác muốn hiển thị đè lên nội dung ban đầu  */
+            }
+
+            /* vd3: fixed */
+            .box-header{
+                width: 100%;
+                height: 42px;
+                background-color: red;
+                position: fixed;
+                top: 0;
+                /* Ban đầu nếu ko có position: fixed; thì khi bạn cuộn trang thì nó se ko cố định box-header
+                Sau khi thêm thuộc tính này vào thì dù bạn có cuộn trnag như thế nào nó vẫn cố định ở đầu trang*/
+                /* Mẹo: nếu muốn cố định cuối trang thì cho bottom = 0 */
+                /* Mẹo: không cần khai báo  width: 100%; ta có thể thay thế là top=0,left=0,right=0 -> Ý nghĩa: cho cố định theo 3 hướng */
+
+                /* Vd4: sticky  */
+                /* position: sticky;
+                top: 0; */
+                /* top ở sticky có nghĩa là khi bạn cuôn xuống nó có vị trí bám dính cách top là 0(hoặc cho số nào đó) và khi
+                cuộn lên thì đối tượng trở lại vị trí ban đầu (có thể 0 hoặc vị trí ban đầu của nó) */
+            }
+            ul{
+                /* tăng kích thước trang web để xuất hiện thay cuộn  */
+                height: 2000px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="box-header"></div>
+
+        <div class="box">
+            <div>
+                <div>
+                    <!-- vd2.1: chứng minh việc thẻ con sẽ tìm thẻ cha gần nhất có thuộc tính position 
+                    Ở vd này ta thấy rằng dù có tạo bao nhiêu đối tượng thì thẻ con box-child sẽ tìm đến thẻ cha có thuộc tính 
+                    position gần nhất mà không phụ thuộc vào vị trí của đối tượng khác chứa nó, nói cách khác thẻ con chỉ phụ thuộc
+                    vào vị trí của thẻ cha -->
+                    <div class="box-child"></div>
+                    <!-- Thêm: nếu có hai thẻ cha có cùng thuộc tính position thì thẻ cha nào gần nó nhất thì sẽ đc sử dụng để phụ thuộc 
+                    bất cả từ khóa là ralative hay là absolute-->
+                </div>
+            </div>
+            
+        </div>
+
+        <h1>Position</h1>
+        <ul>
+            <li>Relative</li>
+            <li>Asolute</li>
+            <li>Fixed</li>
+            <li>Sticky(Không khuyến cáo sử dụng do ít đc các trình duyệt phổ biến hỗ trợ- đang ở dạng thử nghiệm</li>
+        </ul>
+    </body>
+</html>
