@@ -1,0 +1,92 @@
+html{
+    padding: 0;
+    box-sizing: border-box;
+}
+.box{
+
+    /* Cách 6: cách căn giữa */   
+    /*Bước 1: Đặt một biến local  */
+    --height: 100px;
+    /* Bước 2(cách 6): đặt chiều cao theo tên biến */
+    height: var(--height);
+    text-align: center;
+
+    background-color: orange;
+    /* Cái này sử dụng từ cách 1 đến cách 5 */
+    /* height: 100px; */
+
+
+    /* Ta có thể làm cách này để căn giữa các đối tượng chữ mà box này đang chứa */    
+    /* text-align: center; */
+    /* Sử dụng cách này trong trường hợp có nhiều thẻ con bên trong và muốn cùng điều khiển chúng
+    Còn nếu muốn set riêng biệt thì hãy khai báo nó bên trong đối tượng của riêng nó */
+
+    /* Cách 2: cách căn giữa */
+    /* Bước 1: khai báo thuộc tính trong thẻ cha */
+    /* display: flex; */
+
+    /* Cách 3: cách căn giữa */
+    /* Bước 1: Vẫn khai báo thuộc tính display: flex; trong thẻ cha và thêm 1 thuộc tính Căn giữa theo chiều dọc*/
+    /* align-items: center; */
+    /* Bước 2: thuộc tính căn giữa theo chiều ngang */
+    /* justify-content: center; */
+    /* Cách này hiệu quả khi có nhiều thẻ con bên trong 1 thẻ cha, khác cách 2 là ko cần cùng tên thẻ con 
+    Cách này không tạo khoảng cách giữa những thẻ con mà nằm sát nhau*/
+
+    /* Cách 4: cách căn giữa */
+    /* B1: khai báo thuộc tính ở lớp cha */
+    /* position: relative; */
+
+    /* Cách 5: cách căn giữa */    
+    /* line-height: 100px;
+    text-align: center; */
+    /* Giá trị line-height thường sẽ bằng heigh của thẻ cha khai báo ở trên */
+    /* Cách này có nhược điểm là khi thay đổi kích thước box có thể ko về giữa đc -> Cách 6*/
+
+
+}
+
+h3{
+    /* Cách 1: cách căn giữa */
+    /* Canh giữa theo chiều ngang cho chữ nằm giữa box hoặc bạn có thể khai báo thuộc tính này trong box chứa h3
+    Lý do: thuộc tính này có tính kế thừa đối với các div.box  */
+    /* text-align: center; */
+    /* Ngoài 'center' thì có thể là 'left' và 'right'*/
+
+    /* Canh giữa theo chiều dọc, 100px là bằng số height của thẻ cha */    
+    /* line-height: 100px;     */
+    /* Cũng có thể khai báo thuộc tính này ở thẻ cha, có tính kế thừa */
+
+    /* Mẹo: muốn xác định thuộc tính có tính kế thừa không thì ta nên tra google chứ ko viết đại
+      Cách tra: [tên thuộc tính] css w3school -> vd: line-height css w3school
+     -> Sau đó thuộc tính nào có phần [inherited] = yes, thì nó có tính kế thừa 
+     Nếu ko có tính kế thừa thì thuộc tính ko thể viết dạng kế thừa ở vd 'text-align' như trên*/
+
+     /* Bước 2(cách 2): khai báo thuộc tính trong thẻ con */
+     /* margin: auto; */
+     /* Điểm mạnh của cách 2 là khi ta có nhiều thẻ cùng tên(vd h3) thì nó tự động căn giữa tất cả 
+     Cách này có tạo khoảng cách giữa những thẻ con, và 2 thẻ ngoài cùng sẽ sát mép*/
+
+     /* Bước 2(cách 4): khai báo thuộc tính trong thẻ con (chỉ sử dụng 1 thẻ h3)*/
+    /* position: absolute; */
+    /* top: 50%; */
+    /* 50%: ở đây là nó lấy chiều cao 50% của thẻ cha chứa nó (ta cũng có thể dùng đơn vị px)*/
+    /* tuy nhiên lúc này vẫn chưa căn giữa vì text thẻ con sẽ vướng khung đối tượng cở sở của nó, thường ko nằm giữa khung đối tượng */
+    /* Bước 3(cách 4) căn chỉnh lại text so với khung đối tượng của thẻ con*/
+    /* transform: translateY(-100%) translateX(100%) ; */
+    /* transform: translate(-100%, -100%); */
+    /* Canh giữa nằm ngang dùng right */
+    /* right: 40%; */
+    /* Hoặc canh giữa nằm ngàn dùng left, khi này translateX(-100%)  */
+    /* Hoặc viết gộp translate: transform(-100%,-100%) */
+    /* Lưu ý đây là canh tương đối % hoăc px nên bạn cần vừa code vừa xem thực tế để xác định thông số cho đúng*/
+    /* Cách 4 đc sử dụng khi bạn muốn điều khiển đối tượng con của thẻ con một cách riêng biệt 
+    Vd: ta muốn thêm 1 item phía trước text rồi điều khiển kích thước của nó với điều kiện là ko đc làm thay đổi kích thước text chính,
+    Các cách khác khi sử dụng sẽ vừa làm thay đổi kích thước item vừa làm thay đổi kích thước text nên lúc này dùng cách 4
+    Xem kỹ hơn tại v74(từ p13) */
+
+    /* Bước 3(cách 6): đặt chiều cao theo tên biến */
+    line-height: var(--height);
+    /* Lợi ích của cách này khắc phục nhược điểm của cách 5, khi ta thay đổi chiều cao thì tự động các thuộc tính khác cũng thay đổi theo */
+
+}
