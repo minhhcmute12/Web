@@ -1,5 +1,9 @@
 <!-- 
     V74: Các cách căn giữa trong CSS (làm bên file style12.css)
+
+    V76: Hiển thị hình ảnh dự phòng nếu ảnh chính thường sử dụng bị lỗi
+    Search ảnh hiển thị trong trường hợp lỗi: 'Placeholder Image (thêm size mong muốn)'
+    Lưu ý: các ảnh dự phòng này nên lưu về source code, vd: lưu vào file img 
  -->
 <!DOCTYPE html>
 <html>
@@ -9,6 +13,20 @@
         <meta name="viewport" content="width=">
         <link rel="stylesheet" href="style12.css">
         <style>
+            /* Vd2-V76: lấy hình ảnh làm backgground nhưng bị lỗi */
+            .box_v76{
+
+                width: 200px;
+                height: 200px;                
+                background-image: url('https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg') 
+                      , url('//127.0.0.1:5501/F8Studio/HTMLandCSS/C6_CSS_Between//img/erorr_image.png')  ;
+                /* Cách sửa: thuộc tính background-image có thể nhận nhiều url() nên ta chuẩn bị url phụ ở phía sau, cách nhau bởi dấu phẩy */
+                /* Lưu ý: kỹ thuật này thực chất là các ảnh lưu đè lên nhau và ảnh theo thứ tự ảnh trước ghi đè trên cùng vì vậy ta cần canh chỉnh 
+                phù hợp khi áp dụng cách này - vd ở đây ta cần chỉnh ảnh chính lên cao, vì ảnh phụ ở đây to hơn ảnh chính*/
+
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
 
         </style>
     </head>
@@ -19,5 +37,14 @@
             <!-- <h3>CENTER ME</h3>
             <h3>CENTER ME</h3> -->
         </div>
+
+        <!-- VD1 - V76 -->
+        <!-- Ảnh chính -->
+        <img onerror="this.src='//127.0.0.1:5501/F8Studio/HTMLandCSS/C6_CSS_Between//img/erorr_image.png'" 
+            src="https://znews-photo.zingcdn.me/w960/Uploaded/mfnuy/2022_10_24/2IDAPP7CTNGE4WQQUVIDFPKIOM.jpg" alt="Ảnh Casemiro"/>   <!-- Hình ảnh -->
+        <!--  onerror: thuộc tính này giúp cho khi ảnh chính bị lỗi ko đọc đc link, thì sẽ set lại thuộc tính src chính   -->
+
+        <!-- VD2 - V76 -->
+        <div class="box_v76"></div>
     </body>
 </html>
