@@ -15,7 +15,7 @@ html{
     /* Cái này sử dụng từ cách 1 đến cách 5 */
     /* height: 100px; */
 
-
+    /* Cách 1: cách căn giữa */
     /* Ta có thể làm cách này để căn giữa các đối tượng chữ mà box này đang chứa */    
     /* text-align: center; */
     /* Sử dụng cách này trong trường hợp có nhiều thẻ con bên trong và muốn cùng điều khiển chúng
