@@ -1,0 +1,60 @@
+<!-- 
+    V78: Lý thuyết cơ bản việc tạo 1 website    
+    Các bước cơ bản để tạo ra một website
+    1. Phân tích
+    2. Dựng base (xây dựng nền móng, cấu trúc cơ sở của trang web)
+    3. Xây dựng từng phần theo phân tích (code chi tiết các chức năng)
+    4. Hoàn thiện (debug, test,deploy..)
+
+    V79: Phân biệt,nhận diện và gọi tên các thành phần của trang web
+    Sau đó ta sẽ tiến hành phân tích trang web đó
+
+    * Những thành phần thường gặp trên giao diện web :
+    1. Header (Thanh đầu trang-nằm ngang) : thường chứa các item(thường là các Navigation, hoặc Logo, Banner) chính của trang. 
+
+    2. Navigation (Thanh điều hướng): nơi có một vài nút bấm, vài cái link mà khi bạn bấm vào đó nó sẽ chuyển bạn 
+    tới các nội dung chính của trang, các chức năng bạn muốn hoạt động
+    Lưu ý: bạn có thể thêm Navigation vào bên trong phần 'Header' hoặc có thể tách riêng làm 2 phần riêng biệt.
+
+    3. Breadcrumb (Thanh định vị) : cho người dùng biết là bạn đang ở trang nào, ở đâu khi bấm vào một Navigation nào đó.
+    vd: Khi bấm vào mục Navigation 'Khóa học' thì bạn có thể bấm chọn các mục con của nó, sau đó khi bạn đã vào 
+    trong mục con thì thanh Breadcrumb xuất hiện báo là bạn đã ở trong mục con này. vd: Khóa học-> HTML, CSS
+
+    4. Sidebar (Thanh lựa chọn một phía): nơi chứa các thành phần 'Navigation con' để người dùng lựa chọn tiếp, thường nằm dọc ở một 
+    bên phía của một trang web. vd: có thể là mục chứa các mục menu lựa chọn bên trái hoặc bên phải màn hình.
+
+    5. Slider (màn trượt nội dung): dùng để trình diễn các nội dung trang web chạy, cử động qua lại. Nội dung bên trong có thể là video, 
+    hình ảnh, chữ,... vd: các nội dung comment đánh giá về sản phẩm (V79-10p55).
+
+    6. Content(Nôi dung): chứa các nội dung chính cửa web, thường nằm ở trung tâm website, thường truyền đạt nội dung chính của
+    phần mà ta đã lựa chọn ở 'Navigation' và 'Navigation con'. Nói các khác chính là phần mà người dùng mong muốn khi truy cập
+    vào website. vd: nội dung của bài báo, nội dung của khóa học, nội dung sản phẩm,...
+
+    7. Footer (Thanh chân trang): thường hiện thị logo, các nội dung liên hệ, góp ý hoặc các nội dung khác (có nội dung ít
+    đc quan tâm hơn các nội dung chính) nằm ở cuối trang web.
+
+    => Ngoài phần 'Header' và 'Footer' là 2 phần thường để cố định đầu trang và cuối trang thì các thành phần còn lại không có
+    vị trí cố định, vị trí tùy thuộc hoàn toàn vào ý tưởng của khách hành, lập trình viên,...
+
+    V80: Phân tích dự án
+    Web mẫu: https://www.w3schools.com/w3css/tryw3css_templates_band.htm
+    1. Phân tích: ta sẽ dựa vào cấu trúc từ trên xuống của web mẫu để có thể phân tích các thành phần
+        1.1: Header 
+        1.2: Slider
+        1.3: Content
+            1.3.1: About(giới thiệu) - giới thiệu về ban nhạc
+            1.3.2: Tour - giới thiệu thông tin về tour sắp tới của ban nhạc
+            1.3.3: Contact - thông tin liên hệ tới ban nhạc 
+            1.3.4: Image - ảnh, có thể để một ảnh gì đó liên quan đến chủ thể. 
+            1.3.5: Footer- phần cuối của phần nội dung (các link liên kết mạng xã hội)     
+        1.4: Footer
+    2. Dựng base (xây dựng nền móng, cấu trúc cơ sở của trang web)
+    3. Xây dựng từng phần theo phân tích (code chi tiết các chức năng)
+    4. Hoàn thiện (debug, test,..)
+
+    Lưu ý: + Việc xác định content sẽ dựa vào kinh nghiệm là chủ yếu vì nó ko có sự phân biệt rõ ràng về vị trí cũng như cách sắp
+    xếp. Việc này sẽ do ý đồ lập trình viên hoặc khách hàng quyết định.
+    + Trang web mẫu là trang web dạng 'ONE PAGE- Một trang duy nhất' -> có nghĩa là các hành động cũng chỉ gói gọn thể hiện trong 1 trang.
+    Dạng trang này thường đc làm trang giới thiệu một chủ thể nào đó. 
+    + Về phần ảnh thì vd thực tế thì thường chỗ này ta sẽ để hình ảnh về google map để xác định địa chỉ của cửa hàng    
+-->
